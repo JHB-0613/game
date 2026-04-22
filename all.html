@@ -4,33 +4,48 @@
     <meta charset="UTF-8">
     <title>게임인문학 랜덤 퀴즈 생성기</title>
     <style>
-        body { font-family: 'Pretendard', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f0f2f5; }
+        /* 기본 스타일 유지 및 개선 */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f0f2f5; color: #333; }
         h1 { text-align: center; color: #1a365d; border-bottom: 3px solid #1a365d; padding-bottom: 10px; }
         .controls { text-align: center; margin-bottom: 30px; }
-        .generate-btn { background: #1a365d; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold; }
+        .generate-btn { background: #1a365d; color: white; border: none; padding: 15px 30px; border-radius: 8px; cursor: pointer; font-size: 1.1em; font-weight: bold; transition: background 0.3s; }
         .generate-btn:hover { background: #2c5282; }
         
-        .week-section { margin-top: 40px; }
-        .week-title { background: #e2e8f0; padding: 10px 20px; border-radius: 8px; color: #2d3748; font-weight: bold; margin-bottom: 15px; }
-        
-        .question-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; border-left: 5px solid #1a365d; }
-        .q-text { font-weight: 700; display: block; margin-bottom: 10px; }
-        .ans-guide { display: none; margin-top: 15px; padding: 15px; background: #f8fafc; border: 1px dashed #cbd5e0; border-radius: 6px; color: #4a5568; }
-        .toggle-btn { background: #edf2f7; border: 1px solid #cbd5e0; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em; }/* 네비게이션 바 유지 */
+        /* 네비게이션 바 */
         .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #2d3748; border: 2px solid #2d3748; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
         .nav-btn:hover { background-color: #2d3748; color: #ffffff; }
         .active-nav { background-color: #2d3748 !important; color: #ffffff !important; }
 
+        .week-section { margin-top: 40px; }
+        .week-title { background: #e2e8f0; padding: 10px 20px; border-radius: 8px; color: #2d3748; font-weight: bold; margin-bottom: 15px; border-left: 5px solid #1a365d; }
+        
+        /* 문제 카드 및 입력칸 스타일 */
+        .question-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 25px; border: 1px solid #eee; }
+        .q-text { font-size: 1.1em; font-weight: 700; color: #2c3e50; display: block; margin-bottom: 15px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; font-family: inherit; }
+        textarea:focus { outline: none; border-color: #1a365d; background-color: #fff; box-shadow: 0 0 5px rgba(26, 54, 93, 0.2); }
+        
+        .btn-container { margin-top: 15px; text-align: right; }
+        .toggle-btn { background: #1a365d; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: opacity 0.2s; }
+        .toggle-btn:hover { opacity: 0.9; }
+        
+        .ans-guide { display: none; margin-top: 20px; padding: 20px; background: #f8fafc; border: 1px dashed #1a365d; border-radius: 6px; color: #4a5568; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #1a365d; display: block; margin-bottom: 8px; }
+        mark { background-color: #ffecb3; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <h1>🎲 게임인문학 주차별 랜덤 퀴즈</h1>
     <div class="controls">
-        <p>각 주차별 파일에서 3~4문제를 무작위로 추출합니다.</p>
+        <p>각 주차별 파일에서 3~4문제를 무작위로 추출하여 나만의 시험지를 만듭니다.</p>
         <button class="generate-btn" onclick="generateQuiz()">새로운 퀴즈 생성하기</button>
     </div>
+
     <div class="nav-container">
         <a href="index.html" class="nav-btn">2주차</a>
         <a href="week3.html" class="nav-btn">3주차</a>
@@ -41,8 +56,7 @@
         <a href="#" class="nav-btn active-nav">랜덤 퀴즈</a>
     </div>
 
-    <div id="quiz-container">
-        </div>
+    <div id="quiz-container"></div>
 
     <script>
         const weekFiles = [
@@ -54,39 +68,69 @@
             { name: '7주차', url: 'week7.html' }
         ];
 
+        // 엔터 키 입력 처리 함수
+        function handleKeyPress(event, btnElement) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                const targetId = btnElement.getAttribute('onclick').match(/'([^']+)'/)[1];
+                toggleAns(targetId, btnElement);
+            }
+        }
+
+        // 정답 토글 함수
+        function toggleAns(id, btn) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+
         async function generateQuiz() {
             const container = document.getElementById('quiz-container');
             container.innerHTML = '<p style="text-align:center;">문제를 불러오는 중...</p>';
             
             let finalHtml = '';
+            let globalIdx = 0;
 
             for (const week of weekFiles) {
                 try {
                     const response = await fetch(week.url);
+                    if (!response.ok) continue;
                     const text = await response.text();
                     
-                    // 임시 DOM 생성하여 문제 파싱
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(text, 'text/html');
                     const questions = Array.from(doc.querySelectorAll('.question-item'));
                     
-                    // 3~4개 랜덤 선택
-                    const count = Math.floor(Math.random() * 2) + 3; // 3 또는 4
+                    if (questions.length === 0) continue;
+
+                    const count = Math.floor(Math.random() * 2) + 3; // 3~4개 랜덤 추출
                     const shuffled = questions.sort(() => 0.5 - Math.random());
                     const selected = shuffled.slice(0, count);
 
                     finalHtml += `<div class="week-section">
                                     <div class="week-title">📍 ${week.name}</div>`;
                     
-                    selected.forEach((q, index) => {
+                    selected.forEach((q) => {
+                        globalIdx++;
                         const qText = q.querySelector('.q-text').innerText;
-                        const ansHtml = q.querySelector('.answer-content').innerHTML;
+                        const ansContent = q.querySelector('.answer-content').innerHTML;
+                        const uniqueId = 'ans_' + globalIdx;
                         
                         finalHtml += `
                             <div class="question-card">
                                 <span class="q-text">${qText}</span>
-                                <button class="toggle-btn" onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">정답 확인</button>
-                                <div class="ans-guide">${ansHtml}</div>
+                                <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, document.getElementById('btn_${uniqueId}'))"></textarea>
+                                <div class="btn-container">
+                                    <button id="btn_${uniqueId}" class="toggle-btn" onclick="toggleAns('${uniqueId}', this)">정답 확인</button>
+                                </div>
+                                <div id="${uniqueId}" class="ans-guide">
+                                    ${ansContent}
+                                </div>
                             </div>
                         `;
                     });
@@ -97,7 +141,7 @@
                 }
             }
 
-            container.innerHTML = finalHtml || '<p style="text-align:center; color:red;">파일을 찾을 수 없습니다. HTML 파일들과 같은 폴더에 있는지 확인하세요.</p>';
+            container.innerHTML = finalHtml || '<p style="text-align:center; color:red;">파일을 불러올 수 없습니다. <br>HTML 파일들이 같은 폴더에 있는지, 로컬 서버(Live Server 등)를 통해 실행 중인지 확인하세요.</p>';
         }
 
         // 초기 실행
