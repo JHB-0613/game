@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임인문학 2주차 서술형 평가</title>
+    <style>
+        /* week3 테마와 통일된 스타일 */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #fdfdfd; color: #333; }
+        h1 { text-align: center; color: #000000; margin-bottom: 10px; border-bottom: 2px solid #00920c; padding-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        /* 네비게이션 바 스타일 */
+        .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #00920c; border: 2px solid #00920c; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
+        .nav-btn:hover { background-color: #00920c; color: #ffffff; }
+        .active-nav { background-color: #00920c !important; color: #ffffff !important; }
+        .all-btn { background-color: #fff5f5; }
+
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .question-item { margin-bottom: 50px; padding: 20px; border-left: 5px solid #00920c; background: #fffcfc; border-radius: 0 10px 10px 0; }
+        .q-text { font-size: 1.15em; font-weight: 700; color: #2c3e50; margin-bottom: 15px; display: block; }
+        .q-text span { color: #00920c; margin-right: 8px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; }
+        textarea:focus { outline: none; border-color: #00920c; background-color: #fff; box-shadow: 0 0 5px rgba(211, 47, 47, 0.2); }
+        
+        .info-msg { font-size: 0.85em; color: #999; margin-top: 5px; }
+        .btn-container { margin-top: 15px; text-align: right; }
+        .ans-btn { background: #00920c; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        
+        .answer-content { display: none; margin-top: 20px; padding: 20px; background: #f9f9f9; border: 1px dashed #00920c; border-radius: 4px; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #00920c; display: block; margin-bottom: 8px; }
+        mark { background-color: #ffecb3; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <h1>🎮 게임인문학 2차시 서술형 평가</h1>
+    <p class="subtitle">주제: 놀이의 인간(호모 루덴스)</p>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn active-nav">2주차</a>
+        <a href="week3.html" class="nav-btn">3주차</a>
+        <a href="week4.html" class="nav-btn">4주차</a>
+        <a href="week5.html" class="nav-btn">5주차</a>
+        <a href="week6.html" class="nav-btn">6주차</a>
+        <a href="week7.html" class="nav-btn">7주차</a>
+        <a href="all.html" class="nav-btn all-btn">전체보기</a>
+    </div>
+    <div class="container">
+        <div class="question-item">
+            <span class="q-text"><span>Q1.</span> 요한 호이징하가 정의한 '호모 루덴스'의 의미와 놀이를 문화적 관점에서 어떻게 인식했는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 1)"></textarea>
+            <div class="btn-container"><button id="btn1" class="ans-btn" onclick="toggleAns(1)">정답 확인</button></div>
+            <div id="ans1" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                호모 루덴스는 <mark>삶의 재미를 적극적으로 추구하고자 하는 유희적 존재</mark>를 뜻합니다. 호이징하는 모든 형태의 문화는 그 기원에서 놀이 요소가 발견된다고 보았습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q2.</span> 강의 자료에서 언급된 고대 게임 '세네트'와 '우르의 게임'이 갖는 공통적인 의미를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 2)"></textarea>
+            <div class="btn-container"><button id="btn2" class="ans-btn" onclick="toggleAns(2)">정답 확인</button></div>
+            <div id="ans2" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이집트의 '세네트'와 수메르의 '우르의 게임'은 <mark>인류가 아주 오래전부터 놀이를 통해 성장해왔음</mark>을 보여주는 역사적 증거입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q3.</span> '차투랑가'가 현대의 어떤 게임들의 원형이 되었는지 나열하고, 놀이의 전파 특성에 대해 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 3)"></textarea>
+            <div class="btn-container"><button id="btn3" class="ans-btn" onclick="toggleAns(3)">정답 확인</button></div>
+            <div id="ans3" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                차투랑가는 <mark>장기, 체스, 쇼기의 원형</mark>입니다. 놀이는 역사, 문화, 철학, 종교 등의 분야에서 문명과 문화를 만들어내는 역할을 합니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q4.</span> 백제 의자왕이 일본왕에게 보낸 바둑판 사례를 통해 놀이 도구가 갖는 가치를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 4)"></textarea>
+            <div class="btn-container"><button id="btn4" class="ans-btn" onclick="toggleAns(4)">정답 확인</button></div>
+            <div id="ans4" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이 바둑판은 당대 최고의 예술품으로 평가받습니다. 이는 놀이 도구가 <mark>예술적 가치를 지닌 문화재</mark>이자 국가 간의 문화를 전파하는 도구였음을 보여줍니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q5.</span> 세계 최초의 게임 '테니스 포 투'는 누가, 어떤 장비를 기반으로 만들었는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 5)"></textarea>
+            <div class="btn-container"><button id="btn5" class="ans-btn" onclick="toggleAns(5)">정답 확인</button></div>
+            <div id="ans5" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                1958년 물리학자 <mark>윌리엄 히긴보섬</mark>이 <mark>오실로스코프와 아날로그 컴퓨터</mark>를 기반으로 제작하였습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q6.</span> '팀 왈도'의 특징과 이들이 수행하는 활동의 인문학적 의미를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 6)"></textarea>
+            <div class="btn-container"><button id="btn6" class="ans-btn" onclick="toggleAns(6)">정답 확인</button></div>
+            <div id="ans6" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                실체하는 단체가 아닌 자발적인 <mark>참여형 팀 시스템</mark>입니다. 이는 놀이에 몰두한 매니아가 산업의 영역에 기여하며 문화를 만드는 사례입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q7.</span> '스타크래프트'의 출현이 1998년 대한민국 산업 인프라에 미친 영향을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 7)"></textarea>
+            <div class="btn-container"><button id="btn7" class="ans-btn" onclick="toggleAns(7)">정답 확인</button></div>
+            <div id="ans7" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                스타크래프트는 <mark>대한민국을 바꾸는 계기</mark>가 되었으며, PC방 문화 형성 및 초고속 인터넷 보급을 가속화하여 놀이가 산업을 창출한 대표적 사례가 되었습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q8.</span> 손정의 회장과 빌 게이츠가 김대중 대통령에게 조언한 국가 위기 극복의 핵심 키워드는 무엇인지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 8)"></textarea>
+            <div class="btn-container"><button id="btn8" class="ans-btn" onclick="toggleAns(8)">정답 확인</button></div>
+            <div id="ans8" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                그들은 첫째도, 둘째도, 셋째도 <mark>초고속 인터넷(브로드밴드)</mark>에 집중해야 한다고 강조했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q9.</span> "취미의 몰두에서 문화와 산업이 발생한다"는 표현을 뒷받침하는 유저 한글화의 성공 사례를 쓰시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 9)"></textarea>
+            <div class="btn-container"><button id="btn9" class="ans-btn" onclick="toggleAns(9)">정답 확인</button></div>
+            <div id="ans9" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                <mark>위쳐2, 킹덤 컴</mark> 등의 게임은 유저들이 자발적으로 만든 한글화 결과물이 실제 공식 번역으로 인정받으며 산업적 가치를 증명했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q10.</span> 호이징하가 주장한 "인간의 공동 생활 자체가 놀이의 형식을 가지고 있다"는 말의 의미를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 10)"></textarea>
+            <div class="btn-container"><button id="btn10" class="ans-btn" onclick="toggleAns(10)">정답 확인</button></div>
+            <div id="ans10" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                인간의 법, 정치, 전쟁, 예술 등 모든 문화적 사회 시스템이 <mark>일정한 규칙과 유희적 기원</mark>을 바탕으로 형성되었음을 의미합니다.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function handleKeyPress(event, n) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                showAns(n);
+            }
+        }
+
+        function showAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            el.style.display = 'block';
+            if(btn) btn.innerText = '닫기';
+        }
+
+        function toggleAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+    </script>
+</body>
+</html>

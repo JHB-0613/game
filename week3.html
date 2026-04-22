@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임인문학 3주차 서술형 평가</title>
+    <style>
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #fdfdfd; color: #333; }
+        h1 { text-align: center; color: #000000; margin-bottom: 10px; border-bottom: 2px solid #d32f2f; padding-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #d32f2f; border: 2px solid #d32f2f; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
+        .nav-btn:hover { background-color: #d32f2f; color: #ffffff; }
+        .active-nav { background-color: #d32f2f !important; color: #ffffff !important; }
+
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .question-item { margin-bottom: 50px; padding: 20px; border-left: 5px solid #d32f2f; background: #fffcfc; border-radius: 0 10px 10px 0; }
+        .q-text { font-size: 1.15em; font-weight: 700; color: #2c3e50; margin-bottom: 15px; display: block; }
+        .q-text span { color: #d32f2f; margin-right: 8px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; }
+        textarea:focus { outline: none; border-color: #d32f2f; background-color: #fff; box-shadow: 0 0 5px rgba(211, 47, 47, 0.2); }
+        
+        .info-msg { font-size: 0.85em; color: #999; margin-top: 5px; }
+        .btn-container { margin-top: 15px; text-align: right; }
+        .ans-btn { background: #d32f2f; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        
+        .answer-content { display: none; margin-top: 20px; padding: 20px; background: #f9f9f9; border: 1px dashed #d32f2f; border-radius: 4px; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #d32f2f; display: block; margin-bottom: 8px; }
+        mark { background-color: #ffecb3; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <h1>🍄 게임인문학 3차시 서술형 평가</h1>
+    <p class="subtitle">주제: 일본사회와 슈퍼마리오 - 자료 원문에 충실한 복습 퀴즈</p>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn">2주차</a>
+        <a href="week3.html" class="nav-btn active-nav">3주차</a>
+        <a href="week4.html" class="nav-btn">4주차</a>
+        <a href="week5.html" class="nav-btn">5주차</a>
+        <a href="week6.html" class="nav-btn">6주차</a>
+        <a href="week7.html" class="nav-btn">7주차</a>
+        <a href="all.html" class="nav-btn">전체보기</a>
+    </div>
+    <div class="container">
+        <div class="question-item">
+            <span class="q-text"><span>Q1.</span> 한일 교역 구조의 특징 중 일본이 한국에 대해 갖는 경제적 위치를 '무역 흑자' 관점에서 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 1)"></textarea>
+            <div class="btn-container"><button id="btn1" class="ans-btn" onclick="toggleAns(1)">정답 확인</button></div>
+            <div id="ans1" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                한국은 일본의 <mark>무역 흑자국 3위</mark>이며, 반대로 일본은 한국의 <mark>최대 무역 적자국</mark>이라는 특징을 가지고 있습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q2.</span> 루스 베네딕트의 저서 '국화와 칼'에서 일본인을 설명할 때 사용한 핵심 개념인 '정해진 위치'에 대해 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 2)"></textarea>
+            <div class="btn-container"><button id="btn2" class="ans-btn" onclick="toggleAns(2)">정답 확인</button></div>
+            <div id="ans2" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                일본인들은 <mark>각자 자신에게 적합한 정해진 위치</mark>가 있다고 믿으며, 그 위치를 지키는 것을 사회 질서 유지의 근간으로 삼는다는 개념입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q3.</span> 일본 사회의 인간관을 보여주는 키워드 '이치닌마에(一人前)'의 의미를 강의 자료를 바탕으로 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 3)"></textarea>
+            <div class="btn-container"><button id="btn3" class="ans-btn" onclick="toggleAns(3)">정답 확인</button></div>
+            <div id="ans3" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이치닌마에는 <mark>'제 몫을 다함'</mark>을 의미하며, 일본 사회에서 한 사람의 몫을 온전히 해내는 성숙한 사회 구성원을 뜻합니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q4.</span> 일본 사회를 지탱하는 정신적 원리인 '와(和)'가 깨지는 경우, 사회 구성원들에게 어떤 일이 발생하는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 4)"></textarea>
+            <div class="btn-container"><button id="btn4" class="ans-btn" onclick="toggleAns(4)">정답 확인</button></div>
+            <div id="ans4" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이치닌마에를 하지 못해 <mark>'와(和)'를 깨뜨린 이들은 징벌</mark>을 당하게 됩니다. 이는 집단의 화합을 중시하는 일본 사회의 엄격함을 보여줍니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q5.</span> 강의 자료에 제시된 <세키로> 혹은 <고스트 오브 쓰시마>의 대사 중 "도에서 어긋났어" 등이 시사하는 바를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 5)"></textarea>
+            <div class="btn-container"><button id="btn5" class="ans-btn" onclick="toggleAns(5)">정답 확인</button></div>
+            <div id="ans5" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                자신에게 주어진 <mark>철칙이나 정해진 도리(위치)를 지키지 못한 것</mark>에 대한 비판이며, 이를 어길 시 사회적/집단적 징벌이 따름을 의미합니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q6.</span> 게임 <리듬세상>이 일본 사회의 어떤 특징과 연결되는지 '무라하치부' 개념과 연관 지어 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 6)"></textarea>
+            <div class="btn-container"><button id="btn6" class="ans-btn" onclick="toggleAns(6)">정답 확인</button></div>
+            <div id="ans6" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                모두가 함께 박자를 맞추는 행위는 집단의 리듬(와)을 유지하는 것과 같습니다. 여기서 <mark>박자를 맞추지 못하는 것(탈락)</mark>은 공동체에서 배제되는 <mark>무라하치부</mark>와 유사한 맥락을 갖습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q7.</span> 일본 초등학생들의 가방인 '란도셀'이 상징하는 일본 교육 및 사회의 특징을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 7)"></textarea>
+            <div class="btn-container"><button id="btn7" class="ans-btn" onclick="toggleAns(7)">정답 확인</button></div>
+            <div id="ans7" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                학교라는 집단 내에서 <mark>모두가 동일한 가방을 착용</mark>함으로써, 개인의 개성보다는 집단의 통일성과 '와'를 강조하는 문화를 상징합니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q8.</span> 일본 신입사원들이 입는 '리크루트 수트'가 일본 직장 문화에서 갖는 의미를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 8)"></textarea>
+            <div class="btn-container"><button id="btn8" class="ans-btn" onclick="toggleAns(8)">정답 확인</button></div>
+            <div id="ans8" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                신입사원 모두가 똑같은 복장을 함으로써 <mark>개성을 지우고 조직의 일원으로서 '정해진 위치'에 순응</mark>할 준비가 되었음을 시각적으로 보여주는 장치입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q9.</span> 강의 자료 마지막 부분에 언급된 "주군을 버려라"라는 명령과 "철칙을 등지지 않는다"는 선택지가 보여주는 갈등은 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 9)"></textarea>
+            <div class="btn-container"><button id="btn9" class="ans-btn" onclick="toggleAns(9)">정답 확인</button></div>
+            <div id="ans9" class="answer-content" style="display:none;"> <span class="key-point">✅ 정답 가이드</span>
+                개인이 지켜야 할 <mark>첫 번째 철칙(정해진 위치/도리)</mark>과 실제 상황 사이의 충돌을 보여주며, 일본 문화에서 '철칙'과 '역할'이 얼마나 절대적인지를 나타냅니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q10.</span> '일본사회와 슈퍼마리오'라는 주제를 통해 교수님이 전달하고자 한 핵심 메시지는 무엇인지 종합적으로 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 10)"></textarea>
+            <div class="btn-container"><button id="btn10" class="ans-btn" onclick="toggleAns(10)">정답 확인</button></div>
+            <div id="ans10" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                게임 디자인과 메커니즘(박자 맞추기, 역할 수행 등)에는 그 게임을 만든 <mark>국가의 사회적 가치관과 인문학적 배경(와, 이치닌마에 등)</mark>이 깊게 투영되어 있다는 것입니다.
+            </div>
+        </div>
+        <div class="question-item">
+            <span class="q-text"><span>Q.11</span> 메이지 유신 이후 일본이 전쟁을 수행하는 과정에서 '와(和)'의 개념을 어떻게 국가 통치에 활용했는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 11)"></textarea>
+            <div class="btn-container"><button id="btn11" class="ans-btn" onclick="toggleAns(11)">정답 확인</button></div>
+            <div id="ans11" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                일본은 전쟁을 위해 <mark>개인의 희생을 정당화하고 집단의 단결을 강조</mark>하는 방식으로 '와'를 재해석했습니다. 모든 국민이 천황을 중심으로 한 하나의 가족(가족국가관)이라는 논리를 통해 전쟁에 일사불란하게 참여하도록 유도했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q.12</span> 전쟁 시기 일본의 교육 현장에서 강조된 '규격화된 인간상'이 현대 일본의 '란도셀'이나 '교복 문화'와 어떤 인문학적 연결고리를 갖는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 12)"></textarea>
+            <div class="btn-container"><button id="btn12" class="ans-btn" onclick="toggleAns(12)">정답 확인</button></div>
+            <div id="ans12" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                전쟁을 치르기 위해 군인처럼 <mark>동일한 생각과 행동을 하도록 만드는 교육</mark>이 강조되었습니다. 이러한 '규격화'의 흔적은 현대에도 란도셀이나 리크루트 수트처럼 <mark>개성보다는 집단의 동일성을 우선시하는 복장 문화</mark>로 이어져 내려오고 있습니다.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleKeyPress(event, n) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                showAns(n);
+            }
+        }
+        function showAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if(el) el.style.display = 'block';
+            if(btn) btn.innerText = '닫기';
+        }
+        function toggleAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if (!el) return;
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임인문학 4주차 서술형 평가</title>
+    <style>
+        /* 4주차 테마: 짙은 보라색 계열 */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f8f9fb; color: #333; }
+        h1 { text-align: center; color: #4b0082; margin-bottom: 10px; border-bottom: 2px solid #4b0082; padding-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #4b0082; border: 2px solid #4b0082; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
+        .nav-btn:hover { background-color: #4b0082; color: #ffffff; }
+        .active-nav { background-color: #4b0082 !important; color: #ffffff !important; }
+
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .question-item { margin-bottom: 50px; padding: 20px; border-left: 5px solid #4b0082; background: #fcfaff; border-radius: 0 10px 10px 0; }
+        .q-text { font-size: 1.15em; font-weight: 700; color: #2c3e50; margin-bottom: 15px; display: block; }
+        .q-text span { color: #4b0082; margin-right: 8px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; }
+        textarea:focus { outline: none; border-color: #4b0082; background-color: #fff; box-shadow: 0 0 5px rgba(75, 0, 130, 0.2); }
+        
+        .info-msg { font-size: 0.85em; color: #999; margin-top: 5px; }
+        .btn-container { margin-top: 15px; text-align: right; }
+        .ans-btn { background: #4b0082; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        
+        .answer-content { display: none; margin-top: 20px; padding: 20px; background: #f9f9f9; border: 1px dashed #4b0082; border-radius: 4px; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #4b0082; display: block; margin-bottom: 8px; }
+        mark { background-color: #e6e6fa; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <h1>🐉 게임인문학 4차시 서술형 평가</h1>
+    <p class="subtitle">주제: <용과 같이> 시리즈에 나타난 일본인의 외국인 혐오 - 자료 원문 기반</p>
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn">2주차</a>
+        <a href="week3.html" class="nav-btn">3주차</a>
+        <a href="week4.html" class="nav-btn active-nav">4주차</a>
+        <a href="week5.html" class="nav-btn">5주차</a>
+        <a href="week6.html" class="nav-btn">6주차</a>
+        <a href="week7.html" class="nav-btn">7주차</a>
+        <a href="all.html" class="nav-btn">전체보기</a>
+    </div>
+    <div class="container">
+        <div class="question-item">
+            <span class="q-text"><span>Q1.</span> <용과 같이> 시리즈가 단순한 게임을 넘어 '일본 현대사회를 그대로 따온 게임'으로 평가받는 이유를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 1)"></textarea>
+            <div class="btn-container"><button id="btn1" class="ans-btn" onclick="toggleAns(1)">정답 확인</button></div>
+            <div id="ans1" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이 시리즈는 일본의 실제 거리 풍경과 문화를 정교하게 재현할 뿐만 아니라, <mark>일본 사회 내의 권력 구조, 범죄 조직(토죠카이 등), 그리고 외국인에 대한 사회적 시선</mark>을 게임 내 스토리에 사실적으로 투영하고 있기 때문입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q2.</span> <용과 같이> 게임 속에 등장하는 '진권파'와 같은 한국계 조직이 일본 사회에서 어떤 이미지로 묘사되는지 자료를 바탕으로 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 2)"></textarea>
+            <div class="btn-container"><button id="btn2" class="ans-btn" onclick="toggleAns(2)">정답 확인</button></div>
+            <div id="ans2" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                과거의 원한을 잊지 않고 복수를 위해 다시 나타나는 <mark>"기어들어오는 끈질긴 근성"</mark>을 가진 조직으로 묘사됩니다. 이는 일본인들이 외부 세력(재일 한국인 포함)에 대해 느끼는 <mark>막연한 공포와 배타성</mark>이 투영된 결과입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q3.</span> 게임 내에서 일본 야쿠자가 스스로를 정의하는 방식인 '임협(仁俠)'과 대비되는 중국 마피아의 잔인성을 보여주는 사례를 쓰시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 3)"></textarea>
+            <div class="btn-container"><button id="btn3" class="ans-btn" onclick="toggleAns(3)">정답 확인</button></div>
+            <div id="ans3" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                일본 야쿠자는 나름의 도리를 지킨다고 묘사되지만, 중국 마피아(제왕회 등)는 <mark>일반인이나 심지어 어린이까지 살인의 대상</mark>으로 삼는 등 수단과 방법을 가리지 않는 잔인한 모습으로 그려집니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q4.</span> 중국의 '헤이하이즈(黑孩子)'가 일본 내 범죄 조직인 제왕회와 연결되는 과정을 인문학적 배경과 함께 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 4)"></textarea>
+            <div class="btn-container"><button id="btn4" class="ans-btn" onclick="toggleAns(4)">정답 확인</button></div>
+            <div id="ans4" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                1자녀 정책으로 인해 호적 없이 태어난 이들은 국가의 보호를 받지 못하는 <mark>"어둠의 아이들"</mark>입니다. 생존이 불가능한 이들을 제왕회가 <mark>일본으로 숨겨 들여와 조직원 등으로 활용</mark>하면서 일본 내 갈등의 요소가 됩니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q5.</span> 한 중국인 조직원이 언급한 "일본인의 더러운 피"라는 표현이 시사하는 '혈통'에 관한 갈등을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 5)"></textarea>
+            <div class="btn-container"><button id="btn5" class="ans-btn" onclick="toggleAns(5)">정답 확인</button></div>
+            <div id="ans5" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                이는 <mark>피의 인연을 절대적으로 중시</mark>하는 폐쇄적인 조직 문화를 보여줍니다. 타민족의 혈통을 부정적으로 규정함으로써, 조직 간의 항쟁이나 폭력을 <mark>혈통적 순수성을 지키기 위한 정당한 행위</mark>로 치부하는 인식이 깔려 있습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q6.</span> 강의 자료에서 <용과 같이> 속 외국인들이 공통적으로 연루되는 '불법적인 상태' 3가지를 제시하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 6)"></textarea>
+            <div class="btn-container"><button id="btn6" class="ans-btn" onclick="toggleAns(6)">정답 확인</button></div>
+            <div id="ans6" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                자료에 명시된 키워드는 <mark>밀항, 불법 체류, 무호적 상태</mark>입니다. 이러한 설정은 외국인을 일본 사회의 질서를 위협하는 불안 요소로 낙인찍는 효과를 가집니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q7.</span> 주인공 키류 카즈마가 대결하는 대상들(제왕회, 진권파 등)을 통해 유저들이 느끼게 되는 '대리 만족'의 실체는 무엇인지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 7)"></textarea>
+            <div class="btn-container"><button id="btn7" class="ans-btn" onclick="toggleAns(7)">정답 확인</button></div>
+            <div id="ans7" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                일본 사회 저변에 깔린 <mark>외국인 범죄에 대한 공포와 혐오</mark>를 주인공의 압도적인 무력으로 응징하고 해결함으로써, 현실에서 해소하지 못한 사회적 불안감을 게임을 통해 해소하는 것입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q8.</span> 강의 자료 마지막 부분에서 언급된 "게임 미디어가 사회적 편견을 다룰 때의 위험성"은 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 8)"></textarea>
+            <div class="btn-container"><button id="btn8" class="ans-btn" onclick="toggleAns(8)">정답 확인</button></div>
+            <div id="ans8" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                특정 민족이나 집단을 반복적으로 <mark>잔인한 범죄자나 사회 부적응자로 정형화</mark>하여 묘사할 경우, 유저들이 현실 세계의 외국인들을 바라볼 때도 동일한 <mark>편견과 혐오</mark>를 가질 수 있게 한다는 점입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q9.</span> <용과 같이> 6편 등에서 묘사되는 '오미 연합'과 '토죠카이'의 대립 사이에 외국인 조직이 개입되는 방식의 특징을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 9)"></textarea>
+            <div class="btn-container"><button id="btn9" class="ans-btn" onclick="toggleAns(9)">정답 확인</button></div>
+            <div id="ans9" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                일본 내 거대 조직 간의 이권 다툼에 <mark>중국이나 한국계 조직이 배후에서 협력하거나 이용</mark>당하는 구도로 그려지며, 결국 모든 사건의 혼란을 가중시키는 근원적인 원인으로 외국인 세력을 설정하는 경향이 있습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q10.</span> '인문학적 관점'에서 <용과 같이>를 단순한 오락용 게임이 아닌 분석의 대상으로 삼는 이유는 무엇인지 종합하여 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 10)"></textarea>
+            <div class="btn-container"><button id="btn10" class="ans-btn" onclick="toggleAns(10)">정답 확인</button></div>
+            <div id="ans10" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                게임은 제작자가 속한 사회의 <mark>가치관, 집단적 무의식, 타자에 대한 시선</mark>이 가장 집약적으로 투영된 결과물이기 때문입니다. <용과 같이>를 통해 현대 일본인의 내면화된 차별과 혐오의 지형을 읽어낼 수 있습니다.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleKeyPress(event, n) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                showAns(n);
+            }
+        }
+        function showAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if(el) el.style.display = 'block';
+            if(btn) btn.innerText = '닫기';
+        }
+        function toggleAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if (!el) return;
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+    </script>
+</body>
+</html>

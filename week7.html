@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임인문학 7주차 서술형 평가</title>
+    <style>
+        /* 7주차 테마: 만리장성과 중국 (붉은색과 황금색 계열) */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #fffafb; color: #333; }
+        h1 { text-align: center; color: #b71c1c; margin-bottom: 10px; border-bottom: 2px solid #ffca28; padding-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #b71c1c; border: 2px solid #b71c1c; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
+        .nav-btn:hover { background-color: #b71c1c; color: #ffffff; }
+        .active-nav { background-color: #b71c1c !important; color: #ffffff !important; }
+
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .question-item { margin-bottom: 50px; padding: 20px; border-left: 5px solid #b71c1c; background: #fff8f8; border-radius: 0 10px 10px 0; }
+        .q-text { font-size: 1.15em; font-weight: 700; color: #2c3e50; margin-bottom: 15px; display: block; }
+        .q-text span { color: #b71c1c; margin-right: 8px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; }
+        textarea:focus { outline: none; border-color: #b71c1c; background-color: #fff; box-shadow: 0 0 5px rgba(183, 28, 28, 0.2); }
+        
+        .info-msg { font-size: 0.85em; color: #999; margin-top: 5px; }
+        .btn-container { margin-top: 15px; text-align: right; }
+        .ans-btn { background: #b71c1c; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        
+        .answer-content { display: none; margin-top: 20px; padding: 20px; background: #f9f9f9; border: 1px dashed #b71c1c; border-radius: 4px; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #b71c1c; display: block; margin-bottom: 8px; }
+        mark { background-color: #ffe082; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn">2주차</a>
+        <a href="week3.html" class="nav-btn">3주차</a>
+        <a href="week4.html" class="nav-btn">4주차</a>
+        <a href="week5.html" class="nav-btn">5주차</a>
+        <a href="week6.html" class="nav-btn">6주차</a>
+        <a href="week7.html" class="nav-btn active-nav">7주차</a>
+        <a href="all.html" class="nav-btn">전체보기</a>
+    </div>
+
+    <h1>🧱 게임인문학 7차시 서술형 평가</h1>
+    <p class="subtitle">주제: 만리장성과 중국 게임 - 발명된 전통과 만리방화벽</p>
+
+    <div class="container">
+        <div class="question-item">
+            <span class="q-text"><span>Q1.</span> 에릭 홉스봄이 주장한 '발명된 전통(The Invention of Tradition)'의 개념을 만리장성의 사례와 연결하여 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 1)"></textarea>
+            <div class="btn-container"><button id="btn1" class="ans-btn" onclick="toggleAns(1)">정답 확인</button></div>
+            <div id="ans1" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                전통은 오래된 것처럼 보이지만 실제로는 <mark>최근의 필요에 의해 창조되거나 조작된 것</mark>이라는 의미입니다. 중국은 만리장성의 실제 역사적 실상보다 국가의 통합과 민족의 위대함을 상징하는 새로운 신화로 왜곡하여 전통을 발명했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q2.</span> 베네딕트 앤더슨의 '상상의 공동체' 개념에서 민족국가가 전통이라는 '조작된 기억'을 사용하는 이유를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 2)"></textarea>
+            <div class="btn-container"><button id="btn2" class="ans-btn" onclick="toggleAns(2)">정답 확인</button></div>
+            <div id="ans2" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                민족은 수많은 사람이 서로를 다 알지 못하면서도 하나라고 믿는 <mark>상상의 집단</mark>이기 때문입니다. 이를 유지하기 위해 공동의 역사나 전통이라는 조작된 기억을 기반으로 소속감과 결속력을 조성합니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q3.</span> 중국 국가인 '의용군행진곡'의 가사 중 "우리의 피와 살로 새로운 만리장성을 건설하자"가 상징하는 인문학적 의미를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 3)"></textarea>
+            <div class="btn-container"><button id="btn3" class="ans-btn" onclick="toggleAns(3)">정답 확인</button></div>
+            <div id="ans3" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                만리장성이 단순한 돌덩이 성벽이 아니라, 외부의 적으로부터 <mark>중국을 안전하게 보호하는 수호의 상징이자 중국인의 정신적 일체감</mark>을 나타내는 강력한 신화임을 보여줍니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q4.</span> 실제 역사 속에서 만리장성이 북방 민족의 침입을 막는 데 실패했던 사례를 들어 장성의 '실제 효용성'에 대해 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 4)"></textarea>
+            <div class="btn-container"><button id="btn4" class="ans-btn" onclick="toggleAns(4)">정답 확인</button></div>
+            <div id="ans4" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                자료에 따르면 만리장성은 단 한 번도 <mark>완벽한 방어 효용을 발휘한 적이 없었습니다</mark>. 청나라 군대가 산해관을 통해 들어왔을 때처럼, 장성은 외부의 침입을 물리적으로 막아내기보다 상징적인 경계선에 불과했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q5.</span> 중국의 인터넷 통제 시스템을 뜻하는 '만리방화벽(Great Firewall)'의 개념과 그 목적을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 5)"></textarea>
+            <div class="btn-container"><button id="btn5" class="ans-btn" onclick="toggleAns(5)">정답 확인</button></div>
+            <div id="ans5" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                외부 세계와의 접촉을 차단하고 <mark>정보의 유입을 통제</mark>하기 위해 구축된 거대한 디지털 장벽입니다. 이는 국가 체제에 위협이 되는 내용을 걸러내고 자국 내 인터넷 생태계를 감시하기 위한 목적을 가집니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q6.</span> 중국 정부가 VPN(가상사설망) 우회 접속을 단속하고 사전 승인 없는 서비스를 금지하는 이유는 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 6)"></textarea>
+            <div class="btn-container"><button id="btn6" class="ans-btn" onclick="toggleAns(6)">정답 확인</button></div>
+            <div id="ans6" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                VPN은 만리방화벽을 우회하여 통제되지 않은 정보에 접근할 수 있게 하기 때문입니다. 이를 단속하는 것은 <mark>인터넷상의 정보 주권을 장악</mark>하고 사회적 안정을 저해하는 정보로부터 국민을 격리하려는 의도입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q7.</span> 1996년 당시 중국인들이 인터넷을 쓰기 위해 경찰에 제출해야 했던 서류와 그 속에 담긴 '서약'의 내용을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 7)"></textarea>
+            <div class="btn-container"><button id="btn7" class="ans-btn" onclick="toggleAns(7)">정답 확인</button></div>
+            <div id="ans7" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                <mark>경찰 보고서 3장</mark>을 공공안전국에 제출해야 했으며, 국가를 위험에 빠뜨리거나 공공 안전에 저해되는 내용, 외설적인 내용 등을 읽지 않겠다는 서약이 포함되었습니다. 이는 <mark>인터넷 통제가 중국의 전통적인 방식</mark>임을 보여줍니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q8.</span> 중국 경제에서 나타나는 '경제적 만리장성'의 사례로 자국 기업(예: BOE)에 지급되는 보조금이 갖는 특징을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 8)"></textarea>
+            <div class="btn-container"><button id="btn8" class="ans-btn" onclick="toggleAns(8)">정답 확인</button></div>
+            <div id="ans8" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                중국은 시장 개방보다 <mark>자국 기업 보호와 육성</mark>을 선택합니다. 국유기업과 자국 기업에 막대한 정부 보조금을 지급하여 가격 경쟁력을 확보하고, 이를 통해 LCD 시장 등에서 한국과 일본 기업을 압도하는 결과를 낳았습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q9.</span> 중국 게임 시장이 가진 폐쇄성과 '판호(版號)' 시스템이 해외 게임사들에게 만리장성처럼 느껴지는 이유를 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 9)"></textarea>
+            <div class="btn-container"><button id="btn9" class="ans-btn" onclick="toggleAns(9)">정답 확인</button></div>
+            <div id="ans9" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                중국은 서비스 허가권인 판호를 통해 게임의 유입을 엄격히 조절합니다. 이는 외부 문화 콘텐츠가 중국 사회에 미칠 영향을 검열하고, 결과적으로 <mark>자국 게임 산업을 보호하는 거대한 장벽</mark> 역할을 하기 때문입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q10.</span> '만리장성'이라는 키워드를 통해 본 중국 게임 산업의 특징과 인문학적 함의를 종합하여 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 10)"></textarea>
+            <div class="btn-container"><button id="btn10" class="ans-btn" onclick="toggleAns(10)">정답 확인</button></div>
+            <div id="ans10" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                중국 게임 산업은 <mark>만리방화벽과 보호무역</mark>이라는 성벽 안에서 자국만의 독자적인 생태계를 구축해 왔습니다. 이는 중국이 정보와 콘텐츠를 국가 통제하에 두려는 '만들어진 전통'의 연장선에 있으며, 시장의 개방성보다는 체제 유지와 자국 중심주의를 우선시함을 보여줍니다.
+            </div>
+        </div>
+        <div class="question-item">
+            <span class="q-text"><span>Q.11</span> 만리장성이 외부 침입 방어 외에 '자국민의 이탈을 막는 역할'을 했다는 관점에서, 장성이 갖는 내부 통제적 기능을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 11)"></textarea>
+            <div class="btn-container"><button id="btn11" class="ans-btn" onclick="toggleAns(11)">정답 확인</button></div>
+            <div id="ans11" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                만리장성은 외부 적을 막는 방벽인 동시에, <mark>자국민이 국경을 넘어 이탈하거나 외부 세력과 결탁하는 것을 감시하고 차단하는 통제선</mark>의 역할을 했습니다. 이는 현대 중국의 '만리방화벽'이 외부 정보의 유입을 막는 동시에 자국민의 디지털 활동을 감시·통제하는 것과 인문학적으로 궤를 같이합니다.
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function handleKeyPress(event, n) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                showAns(n);
+            }
+        }
+        function showAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if(el) el.style.display = 'block';
+            if(btn) btn.innerText = '닫기';
+        }
+        function toggleAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if (!el) return;
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+    </script>
+</body>
+</html>

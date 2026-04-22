@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게임인문학 6주차 서술형 평가</title>
+    <style>
+        /* 6주차 테마: 스탠다드 & 신뢰 (네이비와 블루 계열) */
+        body { font-family: 'Pretendard', 'Malgun Gothic', sans-serif; line-height: 1.7; max-width: 900px; margin: 40px auto; padding: 20px; background-color: #f8f9fa; color: #333; }
+        h1 { text-align: center; color: #1a365d; margin-bottom: 10px; border-bottom: 2px solid #cbd5e0; padding-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        
+        .nav-container { text-align: center; margin-bottom: 30px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; padding: 10px 18px; background-color: #ffffff; color: #1a365d; border: 2px solid #1a365d; border-radius: 8px; font-weight: 600; font-size: 0.95em; transition: all 0.3s ease; }
+        .nav-btn:hover { background-color: #1a365d; color: #ffffff; }
+        .active-nav { background-color: #1a365d !important; color: #ffffff !important; }
+
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid #eee; }
+        .question-item { margin-bottom: 50px; padding: 20px; border-left: 5px solid #1a365d; background: #f0f4f8; border-radius: 0 10px 10px 0; }
+        .q-text { font-size: 1.15em; font-weight: 700; color: #2c3e50; margin-bottom: 15px; display: block; }
+        .q-text span { color: #1a365d; margin-right: 8px; }
+        
+        textarea { width: 100%; height: 100px; padding: 15px; margin-top: 10px; border: 1px solid #ddd; border-radius: 8px; resize: vertical; font-size: 1em; box-sizing: border-box; transition: all 0.3s; }
+        textarea:focus { outline: none; border-color: #1a365d; background-color: #fff; box-shadow: 0 0 5px rgba(26, 54, 93, 0.2); }
+        
+        .info-msg { font-size: 0.85em; color: #999; margin-top: 5px; }
+        .btn-container { margin-top: 15px; text-align: right; }
+        .ans-btn { background: #1a365d; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        
+        .answer-content { display: none; margin-top: 20px; padding: 20px; background: #f9f9f9; border: 1px dashed #1a365d; border-radius: 4px; animation: fadeIn 0.4s; }
+        .key-point { font-weight: bold; color: #1a365d; display: block; margin-bottom: 8px; }
+        mark { background-color: #e2e8f0; padding: 2px 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <a href="index.html" class="nav-btn">2주차</a>
+        <a href="week3.html" class="nav-btn">3주차</a>
+        <a href="week4.html" class="nav-btn">4주차</a>
+        <a href="week5.html" class="nav-btn">5주차</a>
+        <a href="week6.html" class="nav-btn active-nav">6주차</a>
+        <a href="week7.html" class="nav-btn">7주차</a>
+        <a href="all.html" class="nav-btn">전체보기</a>
+    </div>
+
+    <h1>🚩 게임인문학 6차시 서술형 평가</h1>
+    <p class="subtitle">주제: 스탠다드와 게임 - 표준이 만드는 산업과 승리</p>
+
+    <div class="container">
+        <div class="question-item">
+            <span class="q-text"><span>Q1.</span> '스탠다드(Standard)'라는 단어의 어원은 무엇이며, 이것이 고대 전쟁에서 수행했던 역할은 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 1)"></textarea>
+            <div class="btn-container"><button id="btn1" class="ans-btn" onclick="toggleAns(1)">정답 확인</button></div>
+            <div id="ans1" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                어원은 <mark>군대의 깃발(Stand+Hard)</mark>에서 유래했습니다. 전쟁 중 혼란스러운 상황에서 아군이 모여야 할 기준점이자 지휘 체계의 중심 역할을 했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q2.</span> 진시황이 중국 통일 후 단행한 '서동문 거동궤(書同文 車同軌)' 정책 중 '거동궤'가 의미하는 표준화의 구체적인 내용은 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 2)"></textarea>
+            <div class="btn-container"><button id="btn2" class="ans-btn" onclick="toggleAns(2)">정답 확인</button></div>
+            <div id="ans2" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                전국적으로 <mark>수레바퀴의 폭을 표준화</mark>한 것을 의미합니다. 이를 통해 도로의 폭을 일정하게 관리하고 수레가 어디든 빠르게 이동할 수 있게 하여 중앙의 명령이 전국에 신속히 도달하게 했습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q3.</span> 진나라 군대가 다른 국가들에 비해 강력한 전투력을 유지할 수 있었던 비결을 '부품 표준화' 관점에서 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 3)"></textarea>
+            <div class="btn-container"><button id="btn3" class="ans-btn" onclick="toggleAns(3)">정답 확인</button></div>
+            <div id="ans3" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                무기와 장비의 <mark>부품을 규격화</mark>하여 전장에서 장비가 고장 나더라도 다른 장비의 부품을 즉시 갈아 끼워 전투를 지속할 수 있는 효율적인 군수 체계를 갖추었기 때문입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q4.</span> 미국 남북전쟁 당시 북군이 남군을 제치고 승리할 수 있었던 산업적 배경 중 '표준화'와 관련된 사례는 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 4)"></textarea>
+            <div class="btn-container"><button id="btn4" class="ans-btn" onclick="toggleAns(4)">정답 확인</button></div>
+            <div id="ans4" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                북군은 <mark>철도의 궤적을 표준화</mark>하고 대량 생산 체제를 갖추어 병력과 물자를 신속하게 이동시켰습니다. 반면 남군은 철도 규격이 제각각이라 보급 효율이 현저히 떨어졌습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q5.</span> 중세 유럽 왕국들이 발행한 '표준화폐'의 특징과 그것이 현대의 '표준(Standard)' 개념과 어떻게 연결되는지 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 5)"></textarea>
+            <div class="btn-container"><button id="btn5" class="ans-btn" onclick="toggleAns(5)">정답 확인</button></div>
+            <div id="ans5" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                중세 왕국들은 <mark>왕의 문장이 찍힌 표준화폐</mark>를 주조하여 통용시켰습니다. 이는 화폐의 가치와 품질을 국가가 보증한다는 의미이며, 오늘날 표준이 제품이나 서비스의 <mark>신뢰와 자격 기준</mark>을 상징하게 된 기원이 되었습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q6.</span> 2000년대 초반, 소니(PS)와 마이크로소프트(Xbox)가 차세대 미디어 표준을 두고 벌인 '포맷 전쟁'의 주요 대상을 각각 쓰시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 6)"></textarea>
+            <div class="btn-container"><button id="btn6" class="ans-btn" onclick="toggleAns(6)">정답 확인</button></div>
+            <div id="ans6" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                소니는 <mark>블루레이(Blu-ray)</mark> 진영을 주도했고, 마이크로소프트는 도시바와 함께 <mark>HD-DVD</mark> 진영을 지원하며 표준 경쟁을 벌였습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q7.</span> 닌텐도 DS나 아이폰의 사례처럼 '시장조사가 필요 없는 제품'이 갖는 공통적인 특징은 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 7)"></textarea>
+            <div class="btn-container"><button id="btn7" class="ans-btn" onclick="toggleAns(7)">정답 확인</button></div>
+            <div id="ans7" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                기존 시장의 요구를 반영하는 것을 넘어, <mark>세상에 없던 새로운 라이프스타일이나 놀이의 표준</mark>을 제시하여 시장 자체를 새롭게 정의했다는 점입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q8.</span> 현대의 동영상 플랫폼 시장에서 '유튜브(YouTube)'가 정보와 놀이의 표준이 된 사회적 영향에 대해 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 8)"></textarea>
+            <div class="btn-container"><button id="btn8" class="ans-btn" onclick="toggleAns(8)">정답 확인</button></div>
+            <div id="ans8" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                유튜브는 단순한 사이트를 넘어 <mark>뉴미디어 시대의 정보 검색 및 소통의 표준</mark>이 되었습니다. 이는 텍스트 중심에서 영상 중심으로 정보 습득의 패러다임을 완전히 바꾸어 놓았습니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q9.</span> 강의 자료에 따르면 '4차 산업혁명의 시기'에 기업들이 표준을 선점하기 위해 사활을 거는 이유는 무엇입니까?</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 9)"></textarea>
+            <div class="btn-container"><button id="btn9" class="ans-btn" onclick="toggleAns(9)">정답 확인</button></div>
+            <div id="ans9" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                한번 형성된 표준은 <mark>강력한 락인(Lock-in) 효과</mark>를 발생시키며, 플랫폼을 지배하는 기업이 산업 전체의 생태계와 부를 독점할 수 있는 구조이기 때문입니다.
+            </div>
+        </div>
+
+        <div class="question-item">
+            <span class="q-text"><span>Q10.</span> 컨베이어 벨트를 활용한 '포드주의(Fordism)'가 산업 표준화에 기여한 점과 그 과정에서 발생한 인문학적 문제점을 서술하시오.</span>
+            <textarea placeholder="답안을 입력하고 Enter를 누르세요..." onkeydown="handleKeyPress(event, 10)"></textarea>
+            <div class="btn-container"><button id="btn10" class="ans-btn" onclick="toggleAns(10)">정답 확인</button></div>
+            <div id="ans10" class="answer-content">
+                <span class="key-point">✅ 정답 가이드</span>
+                포드주의는 부품과 공정의 표준화를 통해 <mark>자동차의 대량 생산과 가격 인하</mark>를 실현하여 대중 소비 시대를 열었습니다. 하지만 인문학적 관점에서는 노동자를 거대한 기계의 <mark>규격화된 부품</mark>으로 전락시켜, 노동의 즐거움을 뺏고 인간을 소외시켰다는 비판을 받습니다.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleKeyPress(event, n) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                showAns(n);
+            }
+        }
+        function showAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if(el) el.style.display = 'block';
+            if(btn) btn.innerText = '닫기';
+        }
+        function toggleAns(n) {
+            var el = document.getElementById('ans' + n);
+            var btn = document.getElementById('btn' + n);
+            if (!el) return;
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+                btn.innerText = '닫기';
+            } else {
+                el.style.display = 'none';
+                btn.innerText = '정답 확인';
+            }
+        }
+    </script>
+</body>
+</html>
